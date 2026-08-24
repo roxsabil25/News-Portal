@@ -62,7 +62,7 @@ const Header = () => {
           {/* Logo Section with Link */}
           <Link to="/" className="flex items-center space-x-3 cursor-pointer">
             <div className="w-12 h-12" >
-              <img src="/public/img/Capture-Photoroom.png" alt="logo" />
+              <img src="/img/Capture-Photoroom.png" alt="logo" />
             </div>
             <div className="flex flex-col leading-none">
               <span className="text-xl font-serif font-bold tracking-tight text-gray-900">আজাদ </span>
