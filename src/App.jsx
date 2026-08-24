@@ -6,8 +6,8 @@ import NewsDetails from "./NewsDetails.jsx";
 import AllArticles from "./components/articles/AllArticles.jsx";
 import AllIcymi from "./components/icymi/AllIcymi.jsx";
 import AllOpinions from "./components/opinion/AllOpinions.jsx";
-import Editorials from "./components/Editorial/EditorialSection.jsx";
-import AllFeatures from "./components/Feature/AllFeatures.jsx";
+import Editorials from "./components/editorial/EditorialSection.jsx";
+import AllFeatures from "./components/feature/AllFeatures.jsx";
 import AllNews from "./components/news/AllNews.jsx";
 
 
