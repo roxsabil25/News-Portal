@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap');
+@import "tailwindcss";
+
+:root {
+  font-family: 'Hind Siliguri', sans-serif;
+  color: #17211b;
+  background: #f7f4ee;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --ink: #17211b;
+  --muted: #667168;
+  --paper: #f7f4ee;
+  --paper-deep: #ebe5d9;
+  --card: #fffdf8;
+  --accent: #d4482f;
+  --line: rgba(23, 33, 27, 0.15);
+  --display: 'Playfair Display', Georgia, serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; background: var(--paper); }
+button, input { font: inherit; }
+a { color: inherit; }
+
+.font-serif { font-family: var(--display); }
+.font-sans { font-family: 'Hind Siliguri', sans-serif; }
+.font-mono { font-family: 'Hind Siliguri', sans-serif; }
+
+::selection { background: #f2b8a8; color: var(--ink); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+}
+/* index.css বা App.css এর একদম নিচে */
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes marquee2 {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(0%); }
+}
+
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee2 {
+  animation: marquee2 25s linear infinite;
+}
+
+/* Hover করলে Animation Pause করার জন্য (Optional) */
+.animate-marquee:hover,
+.animate-marquee2:hover {
+  animation-play-state: paused;
+}
+
+.public-page { min-height: 60vh; }
+.public-header { background: rgba(247, 244, 238, 0.94); backdrop-filter: blur(14px); }
+.public-header .brand-mark { box-shadow: 0 8px 22px rgba(212, 72, 47, 0.2); }
+.public-nav-link { letter-spacing: 0.02em; }
+.section-rule { border-color: var(--line); }
+.story-image { aspect-ratio: 16 / 10; object-fit: cover; transition: transform 500ms cubic-bezier(.2,.7,.2,1), filter 500ms ease; }
+.story-link:hover .story-image { transform: scale(1.04); filter: saturate(1.08); }
+.story-card { background: var(--card); border: 1px solid var(--line); transition: transform 250ms ease, box-shadow 250ms ease; }
+.story-card:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(23, 33, 27, 0.09); }
+.public-footer { background: var(--ink); color: #f7f4ee; }
+.public-footer a { color: #cbd3ca; transition: color 180ms ease; }
+.public-footer a:hover { color: #fff; }
