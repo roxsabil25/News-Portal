@@ -12,6 +12,8 @@ import AllOpinions from "./components/opinion/AllOpinions.jsx";
 import Editorials from "./components/editorial/EditorialSection.jsx";
 import AllFeatures from "./components/feature/AllFeatures.jsx";
 import AllNews from "./components/news/AllNews.jsx";
+import CategoryNews from "./components/news/CategoryNews";
+import Footer from "./components/Footer.jsx";
 
 import AdminLogin from "./adminPanel/Login.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
@@ -36,15 +38,6 @@ const AboutUs = () => (
     <h1 className="font-serif text-4xl font-bold text-[#17211b]">আমাদের কথা</h1>
     <p className="max-w-xl mx-auto mt-5 text-[#667168] text-lg">সত্য, প্রাসঙ্গিকতা ও মানুষের গল্পকে পাঠকের কাছে পৌঁছে দেওয়াই আমাদের অঙ্গীকার।</p>
   </div>
-);
-
-const Footer = () => (
-  <footer className="public-footer mt-16">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col sm:flex-row gap-6 items-start sm:items-center justify-between">
-      <div><p className="font-serif text-2xl font-bold">আজাদ বাংলাদেশ</p><p className="text-sm text-[#aeb9ae] mt-1">খবরে থাকুন, সত্যের পাশে থাকুন।</p></div>
-      <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm"><Link to="/all-news">সর্বশেষ খবর</Link><Link to="/about-us">আমাদের কথা</Link><span className="text-[#7e8b80]">© {new Date().getFullYear()} আজাদ বাংলাদেশ</span></div>
-    </div>
-  </footer>
 );
 
 function App() {
@@ -81,6 +74,7 @@ function App() {
           <Route path="/opinion" element={<AllOpinions />} />
           <Route path="/all-news" element={<AllNews />} />
           <Route path="/feature" element={<AllFeatures />} />
+          <Route path="/category/:categoryName" element={<CategoryNews />} />
           <Route path="/about-us" element={<AboutUs />} />
           {/* Admin Login Route */}
           <Route path="/admin/login" element={<AdminLogin />} />

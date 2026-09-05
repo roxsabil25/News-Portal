@@ -98,25 +98,22 @@ app.post('/api/news', verifyToken, async (req, res) => {
   }
 });
 
-app.get('/api/news', async (req, res) => {
-  try {
-    const news = await News.find().sort({ createdAt: -1 });
-    res.status(200).json({
-      success: true,
-      data: news,
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: 'Server error',
-      error: error.message,
-    });
-  }
-});
+// app.get('/api/news', async (req, res) => {
+//   try {
+//     const news = await News.find().sort({ createdAt: -1 });
+//     res.status(200).json({
+//       success: true,
+//       data: news,
+//     });
+//   } catch (error) {
+//     res.status(500).json({
+//       success: false,
+//       message: 'Server error',
+//       error: error.message,
+//     });
+//   }
+// });
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
 
 app.put('/api/news/:id', verifyToken, async (req, res) => {
   try {
@@ -150,4 +147,45 @@ app.delete('/api/news/:id', verifyToken, async (req, res) => {
   } catch (error) {
     return res.status(500).json({ success: false, message: error.message || 'Failed to delete news' });
   }
+});
+
+
+
+// Database এ থাকা সকল unique category রিটার্ন করবে
+app.get('/api/categories', async (req, res) => {
+  try {
+    const categories = await News.distinct('category');
+    res.json(categories);
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+});
+
+// Single news endpoint that handles ALL news as well as category filtering & sorting
+app.get('/api/news', async (req, res) => {
+  try {
+    const { category } = req.query;
+    let query = {};
+    
+    if (category) {
+      query.category = { $regex: new RegExp(`^${category}$`, 'i') };
+    }
+
+    // createdAt: -1 দিয়ে নতুন নিউজ আগে এবং পুরোনো নিউজ পরে ফিল্টার করা হলো
+    const newsList = await News.find(query).sort({ createdAt: -1 });
+    res.status(200).json({
+      success: true,
+      data: newsList,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: 'Server error',
+      error: error.message,
+    });
+  }
+});
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
