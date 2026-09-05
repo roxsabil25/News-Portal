@@ -8,7 +8,7 @@ const CategoryNews = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost:3000/api/news?category=${encodeURIComponent(categoryName)}`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/news?category=${encodeURIComponent(categoryName)}`)
       .then((res) => res.json())
       .then((resData) => {
         // backend formatted as { success: true, data: [...] }

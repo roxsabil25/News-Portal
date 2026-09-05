@@ -18,7 +18,7 @@ const Header = () => {
 
   // Fetch Dynamic Categories from DB
   useEffect(() => {
-    fetch('http://localhost:3000/api/categories')
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/categories`)
       .then((res) => res.json())
       .then((data) => {
         if (Array.isArray(data)) setCategories(data);
