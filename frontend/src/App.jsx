@@ -14,6 +14,7 @@ import AllFeatures from "./components/feature/AllFeatures.jsx";
 import AllNews from "./components/news/AllNews.jsx";
 import CategoryNews from "./components/news/CategoryNews";
 import Footer from "./components/Footer.jsx";
+import SendStorySection from "./components/SendNews.jsx";
 
 import AdminLogin from "./adminPanel/Login.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
@@ -39,6 +40,7 @@ const AboutUs = () => (
     <p className="max-w-xl mx-auto mt-5 text-[#667168] text-lg">সত্য, প্রাসঙ্গিকতা ও মানুষের গল্পকে পাঠকের কাছে পৌঁছে দেওয়াই আমাদের অঙ্গীকার।</p>
   </div>
 );
+
 
 function App() {
   const location = useLocation();
@@ -76,6 +78,9 @@ function App() {
           <Route path="/feature" element={<AllFeatures />} />
           <Route path="/category/:categoryName" element={<CategoryNews />} />
           <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/news-tips" element={<SendStorySection />} />
+
+
           {/* Admin Login Route */}
           <Route path="/admin/login" element={<AdminLogin />} />
           {/* Admin Panel Route */}

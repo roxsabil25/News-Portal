@@ -101,15 +101,15 @@ const Header = () => {
           {/* Logo Section */}
           <Link to="/" className="flex items-center space-x-3 group shrink-0">
             <div className="w-16 h-20  overflow-hidden border border-gray-200 shadow-sm group-hover:scale-105 transition-transform duration-200">
-              <img src="/img/Capture-Photoroom.png" alt="বাংলাদেশ আজাদ পার্টি" className="w-full h-full object-cover" />
+              <img src="/img/Capture-Photoroom.png" alt="আজাদ বাংলাদেশ" className="w-full h-full object-cover" />
             </div>
             <div className="flex flex-col">
               <span className="text-lg sm:text-xl font-serif font-bold text-green-900 leading-tight">
-                বাংলাদেশ আজাদ পার্টি
+                আজাদ <br /> বাংলাদেশ
               </span>
-              <span className="text-[11px] font-semibold text-red-600 tracking-wider">
+              {/* <span className="text-[11px] font-semibold text-red-600 tracking-wider">
                 ৩৬ জুলাই
-              </span>
+              </span> */}
             </div>
           </Link>
 
