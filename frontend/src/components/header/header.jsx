@@ -113,10 +113,28 @@ const Header = () => {
             </div>
           </Link>
 
-          {/* Desktop Primary Menu (Inline with Logo) */}
-          <div className="hidden lg:flex items-center space-x-1 xl:space-x-2">
-            <h3>আজিদির কথা </h3>
-          </div>
+          
+{/* Sub-header Title with Modern Glow & Pulse Styling */}
+<div className="hidden lg:flex items-center justify-center">
+  <div className="relative group cursor-default">
+    {/* Background Subtle Glow Effect */}
+    <div className="absolute -inset-1 bg-gradient-to-r from-green-600 via-emerald-500 to-red-500 rounded-lg blur-sm opacity-20 group-hover:opacity-40 transition duration-500"></div>
+    
+    {/* Main Badge/Text Container */}
+    <div className="relative flex items-center space-x-2 bg-gradient-to-r from-emerald-50 via-white to-red-50 border border-emerald-200/60 px-4 py-1.5 rounded-full shadow-sm">
+      {/* Live Blinking Dot */}
+      <span className="relative flex h-2.5 w-2.5">
+        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+        <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-600"></span>
+      </span>
+      
+      {/* Styled Text */}
+      <h3 className="text-base font-serif font-extrabold tracking-wide bg-gradient-to-r from-green-900 via-emerald-800 to-red-700 bg-clip-text text-transparent drop-shadow-sm">
+        আজাদির কথা
+      </h3>
+    </div>
+  </div>
+</div>
 
           {/* Search & Mobile Toggle */}
           <div className="flex items-center space-x-2 shrink-0">

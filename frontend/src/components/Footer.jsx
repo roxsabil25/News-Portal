@@ -34,7 +34,7 @@ const Footer = () => {
               </div>
               <div className="flex flex-col">
                 <span className="text-xl sm:text-2xl font-serif font-bold text-green-900 leading-tight">
-                  আজিদির কথা 
+                  আজাদির কথা
                 </span>
                 <span className="text-xs font-semibold tracking-widest text-red-600 uppercase mt-0.5">
                   ৩৬ জুলাই
