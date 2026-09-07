@@ -53,7 +53,7 @@ const Footer = () => {
             <div className="text-xs sm:text-sm text-gray-600 space-y-1.5 leading-relaxed">
               <p className="flex items-center justify-center md:justify-end gap-1.5">
                 <MapPin className="w-4 h-4 text-red-600 shrink-0 hidden sm:inline" />
-                <span><strong>বার্তা কক্ষ:</strong> Manama tower, Dhanmondi 13, Dhaka, Bangladesh</span>
+                <span><strong>বার্তা কক্ষ:</strong>  Dhanmondi 13, Dhaka, Bangladesh</span>
               </p>
               <div className="flex flex-wrap items-center justify-center md:justify-end gap-3 pt-1 text-gray-700 font-mono text-xs">
                 <a href="mailto:3szihad@gmail.com" className="flex items-center gap-1 hover:text-red-600 transition-colors">
