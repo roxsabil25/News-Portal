@@ -105,7 +105,7 @@ const Header = () => {
             </div>
             <div className="flex flex-col">
               <span className="text-lg sm:text-xl font-serif font-bold text-green-900 leading-tight">
-                আজাদ <br /> বাংলাদেশ
+                আজাদির কথা
               </span>
               {/* <span className="text-[11px] font-semibold text-red-600 tracking-wider">
                 ৩৬ জুলাই
