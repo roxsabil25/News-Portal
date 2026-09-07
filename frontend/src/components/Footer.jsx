@@ -34,7 +34,7 @@ const Footer = () => {
               </div>
               <div className="flex flex-col">
                 <span className="text-xl sm:text-2xl font-serif font-bold text-green-900 leading-tight">
-                  আজাদ <br /> বাংলাদেশ
+                  আজিদির কথা 
                 </span>
                 <span className="text-xs font-semibold tracking-widest text-red-600 uppercase mt-0.5">
                   ৩৬ জুলাই
@@ -78,11 +78,11 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-3 text-xs sm:text-sm text-gray-800">
           
           {/* Editorial / Leadership Names */}
-          {/* <div className="flex flex-wrap justify-center sm:justify-start items-center gap-2 sm:gap-4 font-medium">
-            <span>সম্পাদক: <strong className="text-gray-900">মাসুম খান</strong></span>
-            <span className="text-gray-400">|</span>
-            <span>ব্যবস্থাপনা সম্পাদক: <strong className="text-gray-900">খালিদ সাইফুল্লাহ</strong></span>
-          </div> */}
+          <div className="flex flex-wrap justify-center sm:justify-start items-center gap-2 sm:gap-4 font-medium">
+            <span>প্রকাশক ও পৃষ্ঠপোষক: <strong className="text-gray-900">ব্যারিস্টার এ এস এম শাহরিয়ার কবির</strong></span>
+            {/* <span className="text-gray-400">|</span>
+            <span>ব্যবস্থাপনা সম্পাদক: <strong className="text-gray-900">খালিদ সাইফুল্লাহ</strong></span> */}
+          </div>
 
           {/* Social Media Links */}
           <div className="flex items-center space-x-3">

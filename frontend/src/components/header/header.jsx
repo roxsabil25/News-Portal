@@ -114,23 +114,9 @@ const Header = () => {
           </Link>
 
           {/* Desktop Primary Menu (Inline with Logo) */}
-          <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2">
-            {primaryNavItems.map((item) => (
-              <NavLink
-                key={item.name}
-                to={item.path}
-                className={({ isActive }) =>
-                  `px-3 py-2 rounded-md text-sm font-semibold transition-all duration-200 ${
-                    isActive
-                      ? 'bg-red-50 text-red-600 font-bold'
-                      : 'text-gray-700 hover:bg-gray-100 hover:text-red-600'
-                  }`
-                }
-              >
-                {item.name}
-              </NavLink>
-            ))}
-          </nav>
+          <div className="hidden lg:flex items-center space-x-1 xl:space-x-2">
+            <h3>আজিদির কথা </h3>
+          </div>
 
           {/* Search & Mobile Toggle */}
           <div className="flex items-center space-x-2 shrink-0">
@@ -175,6 +161,62 @@ const Header = () => {
           </div>
         </div>
       </div>
+
+      {/* 5. Live Breaking News Ticker */}
+      <div className="bg-[#f8fafc] border-t border-b border-gray-200 text-xs text-gray-700">
+        <div className="max-w-7xl mx-auto flex items-center overflow-hidden h-9">
+          <div className="bg-red-600 text-white px-3 py-2 font-bold tracking-wider flex items-center shrink-0 z-10 h-full shadow-md">
+            <span className="w-2 h-2 rounded-full bg-white animate-ping inline-block mr-2"></span>
+            <span>সরাসরি</span>
+          </div>
+
+          <div className="relative flex overflow-x-hidden w-full items-center">
+            <div className="animate-marquee-1 whitespace-nowrap flex space-x-8 pl-4">
+              <span className="font-medium text-gray-800">
+                বাংলাদেশের ২৩তম রাষ্ট্রপতি নির্বাচিত বদরুল
+              </span>
+              <span className="text-gray-300">|</span>
+              <span className="text-gray-600">
+                মাক্কাহ প্রতিরক্ষা সহযোগিতা চুক্তিতে আগ্রহ বাংলাদেশের
+              </span>
+              <span className="text-gray-300">|</span>
+            </div>
+
+            <div className="absolute top-0 animate-marquee-2 whitespace-nowrap flex space-x-8 pl-4">
+              <span className="font-medium text-gray-800">
+                বাংলাদেশের ২৩তম রাষ্ট্রপতি নির্বাচিত বদরুল
+              </span>
+              <span className="text-gray-300">|</span>
+              <span className="text-gray-600">
+                মাক্কাহ প্রতিরক্ষা সহযোগিতা চুক্তিতে আগ্রহ বাংলাদেশের
+              </span>
+              <span className="text-gray-300">|</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+{/* Desktop Primary Menu  */}
+
+
+  <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2 center justify-center bg-[#FAF8F5] border-t border-b border-gray-200 text-sm font-medium text-gray-700">
+            {primaryNavItems.map((item) => (
+              <NavLink
+                key={item.name}
+                to={item.path}
+                className={({ isActive }) =>
+                  `px-3 py-2 rounded-md text-sm font-semibold transition-all duration-200 ${
+                    isActive
+                      ? 'bg-red-50 text-red-600 font-bold'
+                      : 'text-gray-700 hover:bg-gray-100 hover:text-red-600'
+                  }`
+                }
+              >
+                {item.name}
+              </NavLink>
+            ))}
+          </nav>
+
 
       {/* 3. Category Scrollbar Bar */}
       <div className="border-t border-gray-100 bg-[#FAF8F5] shadow-inner">
@@ -256,39 +298,7 @@ const Header = () => {
         </div>
       )}
 
-      {/* 5. Live Breaking News Ticker */}
-      <div className="bg-[#f8fafc] border-t border-b border-gray-200 text-xs text-gray-700">
-        <div className="max-w-7xl mx-auto flex items-center overflow-hidden h-9">
-          <div className="bg-red-600 text-white px-3 py-2 font-bold tracking-wider flex items-center shrink-0 z-10 h-full shadow-md">
-            <span className="w-2 h-2 rounded-full bg-white animate-ping inline-block mr-2"></span>
-            <span>সরাসরি</span>
-          </div>
 
-          <div className="relative flex overflow-x-hidden w-full items-center">
-            <div className="animate-marquee-1 whitespace-nowrap flex space-x-8 pl-4">
-              <span className="font-medium text-gray-800">
-                বাংলাদেশের ২৩তম রাষ্ট্রপতি নির্বাচিত বদরুল
-              </span>
-              <span className="text-gray-300">|</span>
-              <span className="text-gray-600">
-                মাক্কাহ প্রতিরক্ষা সহযোগিতা চুক্তিতে আগ্রহ বাংলাদেশের
-              </span>
-              <span className="text-gray-300">|</span>
-            </div>
-
-            <div className="absolute top-0 animate-marquee-2 whitespace-nowrap flex space-x-8 pl-4">
-              <span className="font-medium text-gray-800">
-                বাংলাদেশের ২৩তম রাষ্ট্রপতি নির্বাচিত বদরুল
-              </span>
-              <span className="text-gray-300">|</span>
-              <span className="text-gray-600">
-                মাক্কাহ প্রতিরক্ষা সহযোগিতা চুক্তিতে আগ্রহ বাংলাদেশের
-              </span>
-              <span className="text-gray-300">|</span>
-            </div>
-          </div>
-        </div>
-      </div>
     </header>
   );
 };
