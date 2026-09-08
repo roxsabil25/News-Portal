@@ -207,7 +207,7 @@ const Header = () => {
 
 
       {/* Main Navigation Header */}
-      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-6 bg-sky-500 text-white">
+      <div className=" mx-auto px-2 sm:px-6 lg:px-6 bg-sky-500 text-white">
         <div className="flex items-center justify-between py-2  gap-2">
           
           <Link to="/" className="flex items-center space-x-2 sm:space-x-3 group shrink-0">
