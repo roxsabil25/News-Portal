@@ -207,15 +207,15 @@ const Header = () => {
 
 
       {/* Main Navigation Header */}
-      <div className=" mx-auto px-2 sm:px-6 lg:px-6 bg-sky-500 text-white">
+      <div className=" mx-auto px-2 sm:px-6 lg:px-6 bg-black text-white">
         <div className="flex items-center justify-between py-2  gap-2">
           
           <Link to="/" className="flex items-center space-x-2 sm:space-x-3 group shrink-0">
             <div className="w-12 h-16 sm:w-16 sm:h-20 overflow-hidden  shadow-sm group-hover:scale-105 transition-transform duration-200 rounded">
-              <img src="/img/Capture-Photoroom.png" alt="আজাদ বাংলাদেশ" className="border-2 border-sky-500  w-full h-full object-cover " />
+              <img src="/img/Capture-Photoroom.png" alt="আজাদ বাংলাদেশ" className="border-2 border-black  w-full h-full object-cover " />
             </div>
             <div className="flex flex-col">
-              <span className="text-base sm:text-xl font-serif font-bold text-green-900 leading-tight">
+              <span className="text-base sm:text-xl font-serif font-bold text-white leading-tight">
                 আজাদির কথা
               </span>
             </div>
@@ -227,21 +227,21 @@ const Header = () => {
 
           {/* তারিখ ও সময় সেকশন */}
           <div className="flex flex-col items-end text-[10px] sm:text-xs font-sans text-gray-700 shrink-0 leading-tight space-y-0.5">
-            <span className="text-xs sm:text-sm font-bold text-gray-900  pb-0.5 mb-0.5">
+            <span className="text-xs sm:text-sm font-bold text-white  pb-0.5 mb-0.5">
               {getDayName(currentTime)}
             </span>
-            <span className="flex items-center gap-1 font-semibold text-black">
-              <Calendar className="w-3 h-3 text-red-500 shrink-0" />
+            <span className="flex items-center gap-1 font-semibold text-white">
+              <Calendar className="w-3 h-3 text-white shrink-0" />
               {formatEnglishDate(currentTime)}
             </span>
-            <span className="text-black font-semibold text-[10px] sm:text-[11px]">
+            <span className="text-white font-semibold text-[10px] sm:text-[11px]">
               {getBanglaDateAndMonth(currentTime)}
             </span>
-            <span className="text-black text-[10px] sm:text-[11px]">
+            <span className="text-white text-[10px] sm:text-[11px]">
               {formatHijriDate(currentTime)}
             </span>
-            <span className="flex items-center gap-1 text-xs sm:text-xs font-mono font-bold text-gray-900 pt-0.5">
-              <Clock className="w-3 h-3 text-red-500 shrink-0" />
+            <span className="flex items-center gap-1 text-xs sm:text-xs font-mono font-bold text-white pt-0.5">
+              <Clock className="w-3 h-3 text-white shrink-0" />
               {formatTime(currentTime)}
             </span>
           </div>
