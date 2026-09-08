@@ -204,26 +204,7 @@ const Header = () => {
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
       `}</style>
 
-      {/* Top Mini Bar */}
-      <div className="bg-[#1e293b] text-slate-200 text-xs py-1.5 px-4 sm:px-8 border-b border-slate-700">
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div className="flex items-center space-x-2 sm:space-x-4 text-[11px] text-slate-300">
-            <a href="https://www.azadirkotha.com" target="_blank" rel="noreferrer" className="hover:underline">
-              www.azadirkotha.com
-            </a>
-            <span className="hidden sm:inline">|</span>
-            <a href="https://www.facebook.com/AzadBangladesh2" target="_blank" rel="noreferrer" className="hidden sm:inline hover:underline">
-              facebook.com/AzadBangladesh2
-            </a>
-            <NavLink to="/admin/login" className="flex items-center space-x-1.5 group">
-              <span className="text-[#1e293b]">admin</span>
-            </NavLink>
-          </div>
-          <div className="text-[11px] text-slate-400 font-medium">
-            সত্যের সন্ধানে অবিরত
-          </div>
-        </div>
-      </div>
+
 
       {/* Main Navigation Header */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -272,6 +253,27 @@ const Header = () => {
             </span>
           </div>
 
+        </div>
+      </div>
+
+            {/* Top Mini Bar */}
+      <div className="bg-[#1e293b] text-slate-200 text-xs py-1.5 px-4 sm:px-8 border-b border-slate-700">
+        <div className="max-w-7xl mx-auto flex justify-between items-center">
+          <div className="flex items-center space-x-2 sm:space-x-4 text-[11px] text-slate-300">
+            <a href="https://www.azadirkotha.com" target="_blank" rel="noreferrer" className="hover:underline">
+              www.azadirkotha.com
+            </a>
+            <span className="hidden sm:inline">|</span>
+            <a href="https://www.facebook.com/AzadBangladesh2" target="_blank" rel="noreferrer" className="hidden sm:inline hover:underline">
+              facebook.com/AzadBangladesh2
+            </a>
+            <NavLink to="/admin/login" className="flex items-center space-x-1.5 group">
+              <span className="text-[#1e293b]">admin</span>
+            </NavLink>
+          </div>
+          <div className="text-[11px] text-slate-400 font-medium">
+            সত্যের সন্ধানে অবিরত
+          </div>
         </div>
       </div>
 
