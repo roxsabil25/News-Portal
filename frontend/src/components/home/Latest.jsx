@@ -1,8 +1,12 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { justNewsList, newsList } from '../../data/newsData';
 
 const Home = () => {
-  // ১. শুধুমাত্র 'NEWS' টাইপের ডেটা ফিল্টার করে নেওয়া (fallback সহ)
+  // ট্যাব স্টেট: 'headlines' (আজকের শিরোনাম) অথবা 'articles' (বিশেষ সংবাদ)
+  const [activeTab, setActiveTab] = useState('headlines');
+
+  // ১. 'NEWS' টাইপের ডেটা ফিল্টার করা
   const availableNews =
     justNewsList && justNewsList.length > 0
       ? justNewsList
@@ -13,13 +17,24 @@ const Home = () => {
             !item.type
         );
 
-  // ২. সবচেয়ে নতুন ১টি পোস্ট বাঁপাশের Main News এর জন্য
+  // ২. 'ARTICLE' টাইপের ডেটা ফিল্টার করা (বিশেষ সংবাদের জন্য)
+  const availableArticles = (newsList || []).filter(
+    (item) =>
+      item.type === 'ARTICLE' ||
+      item.category?.toUpperCase() === 'ARTICLE' ||
+      item.isSpecial
+  );
+
+  // ৩. বাঁপাশের Main News-এর জন্য সবচেয়ে নতুন ১টি নিউজ
   const latestNews = availableNews.length > 0 ? availableNews[0] : null;
 
-  // ৩. পরবর্তী ৩টি পোস্ট (ইনডেক্স ১ থেকে ৩) ডানপাশের MORE TODAY এর জন্য
-  const sideNews = availableNews.length > 1 ? availableNews.slice(1, 4) : [];
+  // ৪. সাইডবারের জন্য সক্রিয় ট্যাব অনুযায়ী ৩টি ডেটা নেওয়া (slice(0, 3))
+  const currentSidebarData =
+    activeTab === 'headlines'
+      ? availableNews.slice(0, 3)
+      : (availableArticles.length > 0 ? availableArticles : availableNews).slice(0, 3);
 
-  // সেফটি চেকিং: ডেটা ফেচ না হওয়া পর্যন্ত রেন্ডার আটকে রাখবে
+  // সেফটি চেকিং
   if (!latestNews) {
     return null;
   }
@@ -56,58 +71,85 @@ const Home = () => {
           </Link>
         </div>
 
-        {/* Right Side: MORE TODAY Sidebar (4 Columns) - Next 3 Items */}
+        {/* Right Side: MORE TODAY Sidebar (4 Columns) - Dynamic Tabs */}
         <div className="lg:col-span-4 space-y-6 flex flex-col justify-between">
           <div>
-            {/* Header with See All Link */}
+            {/* Tab Header with Switch Buttons & Dynamic See All Link */}
             <div className="flex justify-between items-center border-b border-gray-300 pb-2 mb-4">
-              <h2 className="text-xs font-bold text-gray-700 tracking-wider uppercase">
-                আজকের আরও খবর
-              </h2>
+              <div className="flex space-x-3">
+                <button
+                  type="button"
+                  onClick={() => setActiveTab('headlines')}
+                  className={`text-xs font-bold uppercase tracking-wider transition-colors relative pb-1 ${
+                    activeTab === 'headlines'
+                      ? 'text-red-700 border-b-2 border-red-700'
+                      : 'text-gray-500 hover:text-gray-900'
+                  }`}
+                >
+                  আজকের শিরোনাম
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setActiveTab('articles')}
+                  className={`text-xs font-bold uppercase tracking-wider transition-colors relative pb-1 ${
+                    activeTab === 'articles'
+                      ? 'text-red-700 border-b-2 border-red-700'
+                      : 'text-gray-500 hover:text-gray-900'
+                  }`}
+                >
+                  বিশেষ সংবাদ
+                </button>
+              </div>
+
               <Link 
-                to="/all-news" 
+                to={activeTab === 'headlines' ? '/all-news' : '/articles'} 
                 className="text-xs font-bold uppercase tracking-widest text-red-700 hover:underline"
               >
                 সব দেখুন →
               </Link>
             </div>
 
-            {/* Sidebar News List */}
+            {/* Sidebar List (3 Items based on active tab) */}
             <div className="divide-y divide-gray-200">
-              {sideNews.map((news) => (
-                <div key={news.id} className="py-4 first:pt-0">
-                  <span className="text-[11px] text-gray-400 font-bold uppercase tracking-wider block mb-1">
-                    {news.category}
-                  </span>
-                  <Link to={`/news/${news.id}`} className="group block">
-                    <h3 className="font-serif font-bold text-lg text-gray-900 leading-snug group-hover:underline">
-                      {news.title}
+              {currentSidebarData.map((item) => (
+                <div key={item.id} className="py-3 first:pt-0">
+                  {item.category && (
+                    <span className="text-[11px] text-gray-400 font-bold uppercase tracking-wider block mb-1">
+                      {item.category}
+                    </span>
+                  )}
+                  <Link 
+                    to={activeTab === 'headlines' ? `/news/${item.id}` : `/articles/${item.id}`} 
+                    className="group block"
+                  >
+                    <h3 className="font-serif font-bold text-base text-gray-900 leading-snug group-hover:text-red-700 group-hover:underline transition-colors">
+                      {item.title}
                     </h3>
                   </Link>
-                  {news.thumbnail && (
-                    <div className="mt-3 overflow-hidden rounded">
+                  {item.thumbnail && (
+                    <div className="mt-2 overflow-hidden rounded">
                       <img 
-                        src={news.thumbnail} 
-                        alt={news.title} 
+                        src={item.thumbnail} 
+                        alt={item.title} 
                         className="w-full h-24 object-cover transition-transform duration-300 hover:scale-105" 
                       />
                     </div>
                   )}
-                  <span className="text-[10px] text-gray-400 uppercase tracking-wide block mt-2 font-mono">
-                    {news.timeAgo || news.publishedDate}
+                  <span className="text-[10px] text-gray-400 uppercase tracking-wide block mt-1.5 font-mono">
+                    {item.timeAgo || item.publishedDate}
                   </span>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* More All News Bottom Button */}
+          {/* Dynamic Bottom Action Button */}
           <div className="pt-2 border-t border-gray-200">
             <Link 
-              to="/all-news" 
+              to={activeTab === 'headlines' ? '/all-news' : '/articles'} 
               className="w-full block text-center py-2.5 px-4 bg-gray-900 text-white text-xs font-bold uppercase tracking-widest hover:bg-red-700 transition-colors rounded"
             >
-              সব খবর দেখুন
+              {activeTab === 'headlines' ? 'সব খবর দেখুন' : 'সব বিশেষ সংবাদ দেখুন'}
             </Link>
           </div>
         </div>

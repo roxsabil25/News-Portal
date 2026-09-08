@@ -74,7 +74,7 @@ const Footer = () => {
       </div>
 
       {/* 2. Middle Editor & Social Icons Bar */}
-      <div className="bg-gray-100 border-t border-gray-200 py-3.5 px-4 sm:px-8">
+      <div className="bg-white border-t border-gray-200 py-3.5 px-4 sm:px-8">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-3 text-xs sm:text-sm text-gray-800">
           
           {/* Editorial / Leadership Names */}
@@ -128,12 +128,13 @@ const Footer = () => {
       </div>
 
       {/* 3. Bottom Copyright & Developer Credit Bar */}
-      <div className="bg-gray-200 text-gray-700 text-xs py-3 px-4">
+      <div className="bg-white-900 text-gray-700 text-xs py-3 px-4">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2 text-center">
           
           {/* Copyright Text */}
           <div>
-            © {new Date().getFullYear()} <span className="font-semibold text-gray-900">আজাদ বাংলাদেশ</span> কর্তৃক সর্বস্বত্ব স্বত্বাধিকার সংরক্ষিত।
+            © {new Date().getFullYear()} <span className="font-semibold text-gray-900">
+আজাদির কথা</span> কর্তৃক সর্বস্বত্ব স্বত্বাধিকার সংরক্ষিত।
           </div>
 
           {/* Developer Credit */}
