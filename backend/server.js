@@ -186,6 +186,22 @@ app.get('/api/news', async (req, res) => {
   }
 });
 
+// 🆔 Single News Details Endpoint
+app.get('/api/news/:id', async (req, res) => {
+  try {
+    if (!mongoose.isValidObjectId(req.params.id)) {
+      return res.status(400).json({ success: false, message: 'Invalid news id' });
+    }
+    const newsItem = await News.findById(req.params.id);
+    if (!newsItem) {
+      return res.status(404).json({ success: false, message: 'News not found' });
+    }
+    res.status(200).json({ success: true, data: newsItem });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+});
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
