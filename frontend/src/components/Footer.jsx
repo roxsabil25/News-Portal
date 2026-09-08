@@ -87,7 +87,7 @@ const Footer = () => {
           {/* Social Media Links */}
           <div className="flex items-center space-x-3">
             <a 
-              href="https://facebook.com" 
+              href="https://www.facebook.com/AzadBangladesh2" 
               target="_blank" 
               rel="noreferrer" 
               aria-label="Facebook"
