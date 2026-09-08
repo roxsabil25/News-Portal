@@ -207,12 +207,12 @@ const Header = () => {
 
 
       {/* Main Navigation Header */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between py-2 sm:py-4 gap-2">
+      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-6 bg-sky-500 text-white">
+        <div className="flex items-center justify-between py-2  gap-2">
           
           <Link to="/" className="flex items-center space-x-2 sm:space-x-3 group shrink-0">
-            <div className="w-10 h-12 sm:w-16 sm:h-20 overflow-hidden border border-gray-200 shadow-sm group-hover:scale-105 transition-transform duration-200 rounded">
-              <img src="/img/Capture-Photoroom.png" alt="আজাদ বাংলাদেশ" className="w-full h-full object-cover" />
+            <div className="w-12 h-16 sm:w-16 sm:h-20 overflow-hidden  shadow-sm group-hover:scale-105 transition-transform duration-200 rounded">
+              <img src="/img/Capture-Photoroom.png" alt="আজাদ বাংলাদেশ" className="border-2 border-sky-500  w-full h-full object-cover " />
             </div>
             <div className="flex flex-col">
               <span className="text-base sm:text-xl font-serif font-bold text-green-900 leading-tight">
@@ -222,29 +222,22 @@ const Header = () => {
           </Link>
 
           <div className="hidden lg:flex items-center justify-center">
-            <div className="relative group cursor-default">
-              <div className="absolute -inset-2 bg-gradient-to-r from-emerald-600 via-green-500 to-red-500 rounded-3xl blur-lg opacity-25 group-hover:opacity-45 transition duration-500"></div>
-              <div className="relative flex items-center justify-center bg-white/80 backdrop-blur-md px-10 py-3 rounded-2xl shadow-xl transform group-hover:scale-102 transition-all duration-300">
-                <h1 className="text-[50px] xl:text-[70px] font-serif font-black tracking-widest bg-gradient-to-r from-green-950 via-emerald-800 to-red-800 bg-clip-text text-transparent drop-shadow-lg leading-none py-2">
-                  আজাদির কথা
-                </h1>
-              </div>
-            </div>
+            <img src="/img/second_logo.png" alt="Advertisement" className="w-[80%] max-w-[728px] h-auto object-contain" />
           </div>
 
           {/* তারিখ ও সময় সেকশন */}
           <div className="flex flex-col items-end text-[10px] sm:text-xs font-sans text-gray-700 shrink-0 leading-tight space-y-0.5">
-            <span className="text-xs sm:text-sm font-bold text-gray-900 border-b border-gray-200 pb-0.5 mb-0.5">
+            <span className="text-xs sm:text-sm font-bold text-gray-900  pb-0.5 mb-0.5">
               {getDayName(currentTime)}
             </span>
-            <span className="flex items-center gap-1 font-semibold text-gray-800">
+            <span className="flex items-center gap-1 font-semibold text-black">
               <Calendar className="w-3 h-3 text-red-500 shrink-0" />
               {formatEnglishDate(currentTime)}
             </span>
-            <span className="text-emerald-700 font-semibold text-[10px] sm:text-[11px]">
+            <span className="text-black font-semibold text-[10px] sm:text-[11px]">
               {getBanglaDateAndMonth(currentTime)}
             </span>
-            <span className="text-gray-500 text-[10px] sm:text-[11px]">
+            <span className="text-black text-[10px] sm:text-[11px]">
               {formatHijriDate(currentTime)}
             </span>
             <span className="flex items-center gap-1 text-xs sm:text-xs font-mono font-bold text-gray-900 pt-0.5">

@@ -71,35 +71,36 @@ const Home = () => {
           </Link>
         </div>
 
-        {/* Right Side: MORE TODAY Sidebar (4 Columns) - Dynamic Tabs */}
+        {/* Right Side: MORE TODAY Sidebar (3 Columns) - Dynamic Tabs */}
         <div className="lg:col-span-4 space-y-6 flex flex-col justify-between">
           <div>
             {/* Tab Header with Switch Buttons & Dynamic See All Link */}
             <div className="flex justify-between items-center border-b border-gray-300 pb-2 mb-4">
-              <div className="flex space-x-3">
-                <button
-                  type="button"
-                  onClick={() => setActiveTab('headlines')}
-                  className={`text-xs font-bold uppercase tracking-wider transition-colors relative pb-1 ${
-                    activeTab === 'headlines'
-                      ? 'text-red-700 border-b-2 border-red-700'
-                      : 'text-gray-500 hover:text-gray-900'
-                  }`}
-                >
-                  আজকের শিরোনাম
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setActiveTab('articles')}
-                  className={`text-xs font-bold uppercase tracking-wider transition-colors relative pb-1 ${
-                    activeTab === 'articles'
-                      ? 'text-red-700 border-b-2 border-red-700'
-                      : 'text-gray-500 hover:text-gray-900'
-                  }`}
-                >
-                  বিশেষ সংবাদ
-                </button>
-              </div>
+<div className="flex space-x-1">
+  <button
+    type="button"
+    onClick={() => setActiveTab('headlines')}
+    className={`px-4 py-2 text-xs font-bold transition-colors rounded-t-md ${
+      activeTab === 'headlines'
+        ? 'bg-black text-white'
+        : 'bg-transparent text-gray-900 hover:text-gray-600'
+    }`}
+  >
+    আজকের শিরোনাম
+  </button>
+  
+  <button
+    type="button"
+    onClick={() => setActiveTab('articles')}
+    className={`px-4 py-2 text-xs font-bold transition-colors rounded-t-md ${
+      activeTab === 'articles'
+        ? 'bg-black text-white'
+        : 'bg-transparent text-gray-900 hover:text-gray-600'
+    }`}
+  >
+    বিশেষ সংবাদ
+  </button>
+</div>
 
               <Link 
                 to={activeTab === 'headlines' ? '/all-news' : '/articles'} 
@@ -147,7 +148,7 @@ const Home = () => {
           <div className="pt-2 border-t border-gray-200">
             <Link 
               to={activeTab === 'headlines' ? '/all-news' : '/articles'} 
-              className="w-full block text-center py-2.5 px-4 bg-gray-900 text-white text-xs font-bold uppercase tracking-widest hover:bg-red-700 transition-colors rounded"
+              className="w-full block text-center py-2.5 px-4 bg-sky-500 text-white text-xs font-bold uppercase tracking-widest hover:bg-sky-700 text-white  transition-colors rounded"
             >
               {activeTab === 'headlines' ? 'সব খবর দেখুন' : 'সব বিশেষ সংবাদ দেখুন'}
             </Link>
